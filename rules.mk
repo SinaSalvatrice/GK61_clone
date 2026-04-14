@@ -3,7 +3,7 @@ MCU = RP2040
 
 # Bootloader
 BOOTLOADER = rp2040
-
+PLATFORM = rp2040
 # Build Options
 BOOTMAGIC_ENABLE = no
 MOUSEKEY_ENABLE = no
