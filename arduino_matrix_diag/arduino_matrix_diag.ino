@@ -78,8 +78,123 @@ struct KeyDef {
 #define CODE_KEY(c) {KEY_KIND_CODE, static_cast<uint8_t>(c)}
 #define FN_KEY      {KEY_KIND_FN, 0}
 
+#ifndef KEY_LEFT_CTRL
+#define KEY_LEFT_CTRL 128
+#endif
+#ifndef KEY_LEFT_SHIFT
+#define KEY_LEFT_SHIFT 129
+#endif
+#ifndef KEY_LEFT_ALT
+#define KEY_LEFT_ALT 130
+#endif
+#ifndef KEY_LEFT_GUI
+#define KEY_LEFT_GUI 131
+#endif
+#ifndef KEY_RIGHT_CTRL
+#define KEY_RIGHT_CTRL 132
+#endif
+#ifndef KEY_RIGHT_SHIFT
+#define KEY_RIGHT_SHIFT 133
+#endif
+#ifndef KEY_RIGHT_ALT
+#define KEY_RIGHT_ALT 134
+#endif
+#ifndef KEY_RIGHT_GUI
+#define KEY_RIGHT_GUI 135
+#endif
+
 #ifndef KEY_MENU
-#define KEY_MENU 0
+#define KEY_MENU HID_KEY(0x65)
+#endif
+#ifndef KEY_ESC
+#define KEY_ESC HID_KEY(0x29)
+#endif
+#ifndef KEY_BACKSPACE
+#define KEY_BACKSPACE HID_KEY(0x2A)
+#endif
+#ifndef KEY_TAB
+#define KEY_TAB HID_KEY(0x2B)
+#endif
+#ifndef KEY_RETURN
+#define KEY_RETURN HID_KEY(0x28)
+#endif
+#ifndef KEY_CAPS_LOCK
+#define KEY_CAPS_LOCK HID_KEY(0x39)
+#endif
+#ifndef KEY_DELETE
+#define KEY_DELETE HID_KEY(0x4C)
+#endif
+#ifndef KEY_UP_ARROW
+#define KEY_UP_ARROW HID_KEY(0x52)
+#endif
+#ifndef KEY_DOWN_ARROW
+#define KEY_DOWN_ARROW HID_KEY(0x51)
+#endif
+#ifndef KEY_LEFT_ARROW
+#define KEY_LEFT_ARROW HID_KEY(0x50)
+#endif
+#ifndef KEY_RIGHT_ARROW
+#define KEY_RIGHT_ARROW HID_KEY(0x4F)
+#endif
+#ifndef KEY_INSERT
+#define KEY_INSERT HID_KEY(0x49)
+#endif
+#ifndef KEY_HOME
+#define KEY_HOME HID_KEY(0x4A)
+#endif
+#ifndef KEY_PAGE_UP
+#define KEY_PAGE_UP HID_KEY(0x4B)
+#endif
+#ifndef KEY_END
+#define KEY_END HID_KEY(0x4D)
+#endif
+#ifndef KEY_PAGE_DOWN
+#define KEY_PAGE_DOWN HID_KEY(0x4E)
+#endif
+#ifndef KEY_PRINT_SCREEN
+#define KEY_PRINT_SCREEN HID_KEY(0x46)
+#endif
+#ifndef KEY_SCROLL_LOCK
+#define KEY_SCROLL_LOCK HID_KEY(0x47)
+#endif
+#ifndef KEY_PAUSE
+#define KEY_PAUSE HID_KEY(0x48)
+#endif
+#ifndef KEY_F1
+#define KEY_F1 HID_KEY(0x3A)
+#endif
+#ifndef KEY_F2
+#define KEY_F2 HID_KEY(0x3B)
+#endif
+#ifndef KEY_F3
+#define KEY_F3 HID_KEY(0x3C)
+#endif
+#ifndef KEY_F4
+#define KEY_F4 HID_KEY(0x3D)
+#endif
+#ifndef KEY_F5
+#define KEY_F5 HID_KEY(0x3E)
+#endif
+#ifndef KEY_F6
+#define KEY_F6 HID_KEY(0x3F)
+#endif
+#ifndef KEY_F7
+#define KEY_F7 HID_KEY(0x40)
+#endif
+#ifndef KEY_F8
+#define KEY_F8 HID_KEY(0x41)
+#endif
+#ifndef KEY_F9
+#define KEY_F9 HID_KEY(0x42)
+#endif
+#ifndef KEY_F10
+#define KEY_F10 HID_KEY(0x43)
+#endif
+#ifndef KEY_F11
+#define KEY_F11 HID_KEY(0x44)
+#endif
+#ifndef KEY_F12
+#define KEY_F12 HID_KEY(0x45)
 #endif
 
 constexpr size_t FN_ROW = 4;
