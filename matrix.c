@@ -55,42 +55,45 @@ void matrix_init_custom(void) {
 
 bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     bool changed = false;
+    matrix_row_t new_matrix[MATRIX_ROWS] = {0};
 
     set_matrix_inputs_pullup();
 
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        matrix_row_t row_state = 0;
+    for (uint8_t col = 0; col < GPIO_COL_COUNT; col++) {
+        gpio_set_pin_output(gpio_col_pins[col]);
+        gpio_write_pin_low(gpio_col_pins[col]);
+        wait_us(MATRIX_IO_DELAY_US);
 
-        for (uint8_t col = 0; col < GPIO_COL_COUNT; col++) {
-            gpio_set_pin_output(gpio_col_pins[col]);
-            gpio_write_pin_low(gpio_col_pins[col]);
+        for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+            if (!gpio_read_pin(row_pins[row])) {
+                new_matrix[row] |= ((matrix_row_t)1U << col);
+            }
+        }
+
+        gpio_set_pin_input_high(gpio_col_pins[col]);
+    }
+
+    if (pcf8575_present) {
+        if (pcf8575_drive_p10_low()) {
             wait_us(MATRIX_IO_DELAY_US);
 
-            if (!gpio_read_pin(row_pins[row])) {
-                row_state |= ((matrix_row_t)1U << col);
+            for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+                if (!gpio_read_pin(row_pins[row])) {
+                    new_matrix[row] |= ((matrix_row_t)1U << 13);
+                }
             }
 
-            gpio_set_pin_input_high(gpio_col_pins[col]);
-        }
-
-        if (pcf8575_present) {
-            if (pcf8575_drive_p10_low()) {
-                wait_us(MATRIX_IO_DELAY_US);
-
-                if (!gpio_read_pin(row_pins[row])) {
-                    row_state |= ((matrix_row_t)1U << 13);
-                }
-
-                if (!pcf8575_release_p10()) {
-                    pcf8575_present = false;
-                }
-            } else {
+            if (!pcf8575_release_p10()) {
                 pcf8575_present = false;
             }
+        } else {
+            pcf8575_present = false;
         }
+    }
 
-        if (current_matrix[row] != row_state) {
-            current_matrix[row] = row_state;
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        if (current_matrix[row] != new_matrix[row]) {
+            current_matrix[row] = new_matrix[row];
             changed             = true;
         }
     }
