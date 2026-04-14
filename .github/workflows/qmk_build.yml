@@ -9,25 +9,38 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: qmkfm/qmk_cli
     steps:
-      - name: Checkout repository
+      - name: Checkout your keyboard repo
         uses: actions/checkout@v4
+        with:
+          path: keyboard_overlay
 
-      - name: Set up Python (for QMK CLI)
+      - name: Checkout QMK Firmware
+        uses: actions/checkout@v4
+        with:
+          repository: qmk/qmk_firmware
+          ref: master
+          path: qmk_firmware
+
+      - name: Copy keyboard into QMK
+        run: |
+          cp -r keyboard_overlay/* qmk_firmware/keyboards/GK61_clone/
+
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install QMK CLI dependencies
+      - name: Install QMK CLI
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install qmk
+          cd qmk_firmware
           qmk setup -y
 
       - name: Build firmware (RP2040)
         run: |
+          cd qmk_firmware
           qmk compile -kb GK61_clone -km default
 
       - name: Upload UF2 artifact
