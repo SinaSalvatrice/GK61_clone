@@ -1,0 +1,19 @@
+{
+  "keyboard_name": "GK61_clone",
+  "manufacturer": "Custom",
+  "url": "",
+  "maintainer": "SinaSalvatrice",
+  "processor": "RP2040",
+  "diode_direction": "COL2ROW",
+  "matrix_pins": {
+    "rows": [2, 3, 4, 5, 6],
+    "cols": [7, 8, 9, 10, 11, 12, 13, 14, 15, 26, 27, 28, 29, "P10"]
+  },
+  "features": {
+    "rgb": false,
+    "encoder": false,
+    "oled": false
+  },
+  "layout": "gk61",
+  "description": "GK61 clone, RP2040 Zero, matrix only, no RGB/encoder/oled."
+}
