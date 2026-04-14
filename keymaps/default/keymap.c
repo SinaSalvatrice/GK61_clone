@@ -2,7 +2,7 @@
 
 // Keymap for GK61 clone, matrix only, default layout
 // Rows: 2, 3, 4, 5, 6
-// Cols: 7, 8, 9, 10, 11, 12, 13, 14, 15, 26, 27, 28, 29, P10
+// Cols: 7, 8, 9, 10, 11, 12, 13, 14, 15, 26, 27, 28, 29
 
 enum layer_names {
     _BASE,
