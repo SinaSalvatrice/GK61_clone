@@ -20,3 +20,6 @@ VIA_ENABLE = yes
 
 # Keymap
 KEYMAP_SECTION_ENABLE = yes
+
+# Platform definition for QMK
+PLATFORM = rp2040
