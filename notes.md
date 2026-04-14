@@ -3,7 +3,8 @@
 - Matrix only, no RGB, encoder, or OLED.
 - RP2040 Zero microcontroller.
 - Matrix rows: 2, 3, 4, 5, 6
-- Matrix columns: 7, 8, 9, 10, 11, 12, 13, 14, 15, 26, 27, 28, 29
+- Matrix columns: 7, 8, 9, 10, 11, 12, 13, 14, 15, 26, 27, 28, 29, P10
+- The last matrix column is driven through a PCF8575 expander on I2C using GP0/GP1.
 - Layout matches GK61 (see reference image for mapping).
 - No advanced features enabled in rules.mk.
 - Build output: UF2 file for RP2040 bootloader.
