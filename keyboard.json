@@ -7,9 +7,8 @@
   "diode_direction": "ROW2COL",
 
   "matrix_pins": {
-    "custom_lite": true,
-    "rows": ["GP2", "GP3", "GP4", "GP5", "GP6"],
-    "cols": ["GP7", "GP8", "GP9", "GP10", "GP11", "GP12", "GP13", "GP14", "GP15", "GP26", "GP27", "GP28", "GP29", "NO_PIN"]
+    "rows": ["GP0", "GP1", "GP2", "GP3", "GP4"],
+    "cols": ["GP5", "GP6", "GP7", "GP8", "GP9", "GP10", "GP11", "GP12", "GP13", "GP14", "GP15", "GP26", "GP27", "GP28"]
   },
   "usb": {
     "vid": "0xFEED",
@@ -17,7 +16,7 @@
     "device_version": "0.0.1"
   },
   "layout": "gk61",
-  "description": "GK61 clone, RP2040 Zero, custom 5x14 matrix with a PCF8575-backed last column.",
+  "description": "GK61 clone, RP2040 Zero, direct 5x14 GPIO matrix.",
   "layouts": {
     "LAYOUT_60_ansi": {
       "layout": [

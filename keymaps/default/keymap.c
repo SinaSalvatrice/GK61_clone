@@ -1,8 +1,8 @@
 #include QMK_KEYBOARD_H
 
 // Keymap for GK61 clone, matrix only, default layout
-// Rows: 2, 3, 4, 5, 6
-// Cols: 7, 8, 9, 10, 11, 12, 13, 14, 15, 26, 27, 28, 29
+// Rows: 0, 1, 2, 3, 4
+// Cols: 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 26, 27, 28
 
 enum layer_names {
     _BASE,

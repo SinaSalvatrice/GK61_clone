@@ -18,9 +18,5 @@ ENCODER_ENABLE = no
 OLED_ENABLE = no
 VIA_ENABLE = yes
 
-CUSTOM_MATRIX = lite
-I2C_DRIVER_REQUIRED = yes
-SRC += matrix.c
-
 # Keymap
 KEYMAP_SECTION_ENABLE = yes
