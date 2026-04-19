@@ -1,4 +1,4 @@
-name: gk61_clone Firmware Build
+name: default Firmware Build
 
 on:
   workflow_dispatch:

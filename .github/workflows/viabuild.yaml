@@ -1,4 +1,4 @@
-name: gk61_clone Firmware Build
+name: via Firmware Build
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ on:
       - "gk61_clone.h"
       - "rules.mk"
       - "keymaps/**"
-      - ".github/workflows/qmk_build.yml"
+      - ".github/workflows/viabuild.yaml"
   pull_request:
 
 jobs:
