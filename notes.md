@@ -7,5 +7,5 @@
 - Matrix is fully routed on the RP2040, no expander required.
 - RGB Matrix uses an approximate 36-zone map rather than one LED per switch.
 - Layout matches GK61 (see reference image for mapping).
-- No advanced features enabled in rules.mk.
+- RGB Matrix is enabled in rules.mk with keypress-reactive effects.
 - Build output: UF2 file for RP2040 bootloader.
